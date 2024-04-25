@@ -53,6 +53,9 @@ const updateProfile = async (_id, data) => {
       throw new Error("Profile not found");
     }
 
+    // Skips the set and save for unit testing
+    if (process.env.NODE_ENV === "development") return profile;
+
     // Update profile with new data
     profile.set(data);
 

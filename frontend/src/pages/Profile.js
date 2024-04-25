@@ -42,8 +42,19 @@ const sexOptions = [
   },
 ];
 
+// Mock profile data
+const mockProfile = {
+  fullName: "John Doe",
+  sex: "Male",
+  height: 180,
+  weight: 75,
+  bmi: 23,
+  class: "Healthy weight",
+  userId: "123456",
+};
+
 const Profile = () => {
-  const [profile, setProfile] = React.useState();
+  const [profile, setProfile] = React.useState(mockProfile);
   const [formData, setFormData] = React.useState({
     fullName: "",
     sex: "",
@@ -54,7 +65,7 @@ const Profile = () => {
   React.useEffect(() => {
     // This retrieves the profile saved from the memory
     let _profile = JSON.parse(localStorage.getItem("profile"));
-    if (typeof _profile !== "undefined") {
+    if (_profile && typeof _profile !== "undefined") {
       // Adds the BMI classification of the user
       const bmiClass = evaluateBmi(_profile.bmi);
       _profile["height"] = _profile["height"] * 100.0;
@@ -66,11 +77,13 @@ const Profile = () => {
       // Sets the form data
       Object.keys(formData).map((key, index) => {
         if (typeof _profile[key] !== "undefined") {
-          setFormData((prevValue) => ({
+          return setFormData((prevValue) => ({
             ...prevValue,
             [key]: _profile[key],
           }));
         }
+
+        return null;
       });
     } else {
       alert("No Profile Found!");
@@ -174,8 +187,12 @@ const Profile = () => {
           {profile &&
             Object.keys(profile).map((key, index) => {
               if (DISPLAY.includes(key)) {
-                return <ProfileBlock label={key} value={profile[key]} />;
+                return (
+                  <ProfileBlock key={index} label={key} value={profile[key]} />
+                );
               }
+
+              return null;
             })}
         </Box>
         <Typography className="profile-title">Update Profile</Typography>

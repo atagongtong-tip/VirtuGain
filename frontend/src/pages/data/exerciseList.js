@@ -1,8 +1,8 @@
 export const EXERCISES_PER_TYPE = {
   underWeight: ["squats", "deadlifts", "pushups", "curls"],
-  healthyWeight: ["lraise", "squats", "deadlifts", "pushups"],
-  overWeight: ["lunges", "squats", "deadlifts", "pushups"],
-  obese: ["jacks", "squats", "lunges", "deadlifts"],
+  healthyWeight: ["lraise", "squats", "deadlifts", "pushups", "barbellrow"],
+  overWeight: ["lunges", "squats", "deadlifts", "pushups", "jacks"],
+  obese: ["jacks", "squats", "lunges", "deadlifts","overheadpress"],
 };
 
 export const EXERCISES = {
@@ -19,13 +19,13 @@ export const EXERCISES = {
     link: "/lift",
   },
   jacks: {
-    name: "Jump and Jacks",
+    name: "Jump Jacks",
     imageFile: "jacks.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     link: "/jack",
   },
   lraise: {
-    name: "Lateral Raise",
+    name: "LateralRaise",
     imageFile: "squat.jpg", // ! No image found
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     link: "/raise",
@@ -55,9 +55,9 @@ export const EXERCISES = {
     link: "/barbellrow",
   },
   overheadpress: {
-    name: "Overhead press",
+    name: "Overhead Press",
     imageFile: "squat.jpg",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     link: "/overheadpress",
-  },
+  }, 
 };

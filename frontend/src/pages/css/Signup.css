@@ -1,6 +1,6 @@
 .signup-container {
   color: var(--clr-neutral-100);
-  background-image: url("../../../public/gym-bg.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)), url("../../../public/gym-bg.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

@@ -28,9 +28,9 @@ const NavBar = () => {
         className="nav-link"
         type="button"
         variant="text"
-        onClick={() => (window.location.href = "/progress")}
+        onClick={() => (window.location.href = "/records")}
       >
-        progress
+        records
       </Button>
       <Button
         className="nav-link"

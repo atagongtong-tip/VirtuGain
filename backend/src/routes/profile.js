@@ -32,7 +32,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/create", async (req, res) => {
-  const { _id, ...profileData } = req.body;
+  const { _id, username, ...profileData } = req.body;
 
   if (process.env.NODE_ENV === "development") {
     console.log("Creating new profile for user Id:", _id);
@@ -53,7 +53,7 @@ router.post("/create", async (req, res) => {
 });
 
 router.post("/update", async (req, res) => {
-  const { _id, ...newData } = req.body;
+  const { _id, username, ...newData } = req.body;
 
   if (process.env.NODE_ENV === "development") {
     console.log("Updating profile for user Id:", _id);

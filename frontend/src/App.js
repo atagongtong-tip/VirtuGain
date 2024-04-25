@@ -20,6 +20,7 @@ import Healthy from "./components/Healthy";
 import Overweight from "./components/Overweight";
 import Obese from "./components/Obese";
 import Profile from "./pages/Profile";
+import Records from "./pages/Records";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/homepage" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/records" element={<Records />} />{" "}
           <Route path="/bmi" element={<BMI />} />
           <Route path="/curl" element={<Curl />} />
           <Route path="/row" element={<Row />} />

@@ -16,6 +16,7 @@ const morgan = require("morgan");
 const loginRoute = require("./src/routes/login.js");
 const signupRoute = require("./src/routes/signup.js");
 const profileRoute = require("./src/routes/profile.js");
+const recordRoute = require("./src/routes/record.js");
 
 // Initiate Express app
 const app = express();
@@ -34,6 +35,7 @@ app.use(express.static("public"));
 app.use("/v1/login", loginRoute);
 app.use("/v1/signup", signupRoute);
 app.use("/v1/profile", profileRoute);
+app.use("/v1/record", recordRoute);
 
 // Respond to non-existing routes
 app.all("*", (req, res) => {

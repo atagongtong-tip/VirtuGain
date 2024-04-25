@@ -21,6 +21,8 @@ const authenticate = (req, res, next) => {
   // Verify token
   try {
     const { _id, username } = verifyToken(token, "access");
+
+    // This stores the user's id and username in the request object.
     req.body._id = _id;
     req.body.username = username;
   } catch (err) {

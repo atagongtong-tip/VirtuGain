@@ -93,9 +93,9 @@ describe("profile functions", async () => {
         },
       };
 
-      // Stubbing the User.findOneAndUpdate method
-      const findOneAndUpdateStub = sinon
-        .stub(Profile, "findOneAndUpdate")
+      // Stubbing the Profile.findOne method
+      const findOneStub = sinon
+        .stub(Profile, "findOne")
         .resolves(expectedResult);
 
       const profile = await profileController.updateProfile(
@@ -104,10 +104,10 @@ describe("profile functions", async () => {
       );
 
       expect(profile).to.deep.equal(expectedResult);
-      expect(findOneAndUpdateStub.called).to.be.true;
+      expect(findOneStub.calledOnceWithExactly({ userId })).to.be.true;
 
       // Restoring the stub
-      findOneAndUpdateStub.restore();
+      findOneStub.restore();
     });
 
     it("should throw an error if update fails", async () => {
@@ -117,21 +117,19 @@ describe("profile functions", async () => {
       };
       const error = new Error("Error updating the profile entry.");
 
-      // Stubbing the User.findOneAndUpdate method to throw an error
-      const findOneAndUpdateStub = sinon
-        .stub(Profile, "findOneAndUpdate")
-        .rejects(error);
+      // Stubbing the Profile.findOne method to throw an error
+      const findOneStub = sinon.stub(Profile, "findOne").rejects(error);
 
       try {
         await profileController.updateProfile(userId, profileData);
-        // If updateUser didn't throw an error, the test should fail
+        // If updateProfile didn't throw an error, the test should fail
         expect.fail("Expected an error to be thrown");
       } catch (err) {
         expect(err).to.equal(error);
       }
 
       // Restoring the stub
-      findOneAndUpdateStub.restore();
+      findOneStub.restore();
     });
   });
 });
