@@ -16,7 +16,7 @@ const Classifier = ({ predictionHandler }) => {
   // Load the model upon mount
   React.useEffect(() => {
     const loadModel = async () => {
-      const modelUrl = `/models/PD-Latest25_82_converted.json`;
+      const modelUrl = `/models/88_model.json`;
       const model = await tf.loadLayersModel(modelUrl);
       setModel(model);
     };
